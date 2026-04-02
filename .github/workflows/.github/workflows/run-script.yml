@@ -1,0 +1,23 @@
+name: Run JavaScript Script
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Étape 1 : Récupérer le code du dépôt
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Étape 2 : Installer Node.js
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    # Étape 3 : Lancer le script (script.js)
+    - name: Run JavaScript file
+      run: node script.js
